@@ -1,10 +1,18 @@
-const http = require("http");
-const app = require("./api/app");
+const express = require("express");
+const path = require("path");
+require("dotenv").config();
 
+const app = express();
 const port = process.env.PORT || 4000;
 
-const server = http.createServer(app);
+app.use(express.static(path.join(__dirname, "client", "build")));
 
-server.listen(port, () => {
+app.use("/api", todoRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+app.listen(port, () => {
   console.log(`server now running on port ${port}`);
 });
