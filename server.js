@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
+const todoRoutes = require("./api/routes/todos");
+
 const app = express();
 const port = process.env.PORT || 4000;
 
