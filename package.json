@@ -12,10 +12,11 @@
   "author": "Ojini Jude",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.1.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.7"
   }
 }
