@@ -1,0 +1,10 @@
+.auth_base {
+    margin: auto;
+    max-width: 500px;
+    height: auto;
+    border: 1px solid #f00;
+    position: relative;
+    top: 230px;
+    padding: 25px;
+    text-align: center;
+}
