@@ -58,7 +58,7 @@ class Signup extends React.Component {
     onBlur = (e) => {
         const { username } = this.state;
         const data = {
-            username: username,
+            username: username.toLowerCase(),
         }
         if (e.target.name === 'username' && data.username.length > 2) {
             axios.post(`${Url}/user/checkForUsername`, data).then(res => {
