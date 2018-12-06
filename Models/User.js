@@ -13,6 +13,9 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         require: true,
+    },
+    post: {
+        type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
     }
 });
 

@@ -45,6 +45,9 @@ class Signup extends React.Component {
                     visible: true,
                     loading: false
                 })
+                setTimeout(() => {
+                    this.props.history.push("/login");
+                }, 2000)
             } else {
                 this.setState({
                     err: res.data.message,
