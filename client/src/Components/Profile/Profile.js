@@ -16,6 +16,7 @@ class Profile extends React.Component {
             token: token
         }
         axios.post(`${Url}/user/userProfile`, data).then(res => {
+            console.log(res);
             this.setState({
                 username: res.data.user.username,
                 email: res.data.user.email

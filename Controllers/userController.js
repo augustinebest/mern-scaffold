@@ -3,6 +3,7 @@ const Admin = require('../Models/Admin');
 const bcrypt = require('bcrypt');
 const auth = require('../Services/Auth');
 const Post = require('../Models/Post');
+const cloud = require('../Services/cloudinary');
 
 exports.signup = (req, res, next) => {
     try {
@@ -119,7 +120,8 @@ exports.postAlite = (req, res, next) => {
     const userId = req.userData.id;
     const post = new Post({
         postDesc: req.body.postDesc,
-        image: req.file.path
+        image: req.file.path || '',
+        imageID: ''
     })
     try {
         if (req.body.postDesc == '' || req.body.postDesc == null) {
@@ -133,14 +135,18 @@ exports.postAlite = (req, res, next) => {
                     if (!user) {
                         return res.json({ message: 'This user does not exist', code: 23 });
                     }
-                    Post.create(post, (err, post) => {
-                        if (err) return res.json({ message: 'Error ocurred in finding this post', code: 16 });
-                        if (!post) {
-                            return res.json({ message: 'Error ocurred in creating this post', code: 18 });
-                        }
-                        user.post.push(post._id);
-                        user.save();
-                        return res.json({ message: 'Post created successfully', code: 200 });
+                    cloud.upload(req.file.path).then(result => {
+                        post.image = result.url;
+                        post.imageID = result.Id;
+                        Post.create(post, (err, post) => {
+                            if (err) return res.json({ message: 'Error ocurred in finding this post', code: 16 });
+                            if (!post) {
+                                return res.json({ message: 'Error ocurred in creating this post', code: 18 });
+                            }
+                            user.post.push(post._id);
+                            user.save();
+                            return res.json({ message: 'Post created successfully', code: 200 });
+                        })
                     })
                 })
             }

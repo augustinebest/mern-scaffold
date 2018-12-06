@@ -8,6 +8,6 @@ router.post('/signup', userController.signup);
 router.post('/checkForUsername', userController.checkForUsername);
 router.post('/login', userController.login);
 router.post('/userProfile', auth.checkAuth, userController.userProfil);
-router.post('/post', auth.checkAuth, upload.upload.single('image'), userController.postAlite);
+router.post('/post/:token', auth.checkAuth, upload.upload.single('image'), userController.postAlite);
 
 module.exports = router;

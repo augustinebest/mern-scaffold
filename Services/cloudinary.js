@@ -1,10 +1,9 @@
 const cloudinary = require('cloudinary');
-const keys = require('../config/keys');
 
 cloudinary.config({
-    cloud_name: keys.cloudinary.cloudName,
-    api_key: keys.cloudinary.apiKey,
-    api_secret: keys.cloudinary.apiSecret
+    cloud_name: process.env.cloudName,
+    api_key: process.env.apiKey,
+    api_secret: process.env.apiSecret
   })
 
 // Upload to cloudinary
