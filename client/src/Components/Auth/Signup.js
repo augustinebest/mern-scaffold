@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../Navbar';
 import { Alert } from 'reactstrap';
 import Loader from '../../Components/loader/Loader';
 import { Url } from '../Factories';
@@ -101,6 +102,8 @@ class Signup extends React.Component {
                 loading &&
                 <Loader />
             }
+
+            <Navbar />
 
             <div className='auth_base'>
                 {

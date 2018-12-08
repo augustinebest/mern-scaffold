@@ -4,6 +4,7 @@ import Modal from './Modal';
 
 class Homepage extends React.Component {
     render() {
+        
         return (
             <div style={{ height: '100%' }}>
                 <Navbar />

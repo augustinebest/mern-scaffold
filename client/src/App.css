@@ -58,8 +58,13 @@ body {
 
 .toolbar_navigation-items .navLink1:hover,
 .toolbar_navigation-items .navLink1:active {
-  color: #f00;
+  color: #00f;
 }
+
+/* .toolbar_navigation-items .navLink2:hover,
+.toolbar_navigation-items .navLink2:active {
+  color: #f00;
+} */
 
 /* Homepage */
 .big__column {
@@ -76,7 +81,7 @@ body {
 .big__column .post__lite {
   position:  fixed;
   bottom: 80px;
-  right: 120px;
+  right: 110px;
   border-radius: 100%;
   transition: 0.5s ease-out;
 }
@@ -89,18 +94,18 @@ body {
 @media (max-width: 680px) {
   .big__column .post__lite {
     position:  fixed;
-    bottom: 50px;
-    right: 70px;
+    bottom: 30px;
+    right: 40px;
   }
 }
 
-@media (max-width: 395px) {
+/* @media (max-width: 395px) {
   .big__column .post__lite {
     position:  fixed;
     bottom: 50px;
     right: 45px;
   }
-} 
+}  */
 
 /* Modal */
 .modal__button {

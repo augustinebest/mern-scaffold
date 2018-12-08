@@ -74,6 +74,9 @@ class ModalExample extends React.Component {
                     uploadResponse: res.data.message,
                     alert: 'success'
                 })
+                setTimeout(() => {
+                    this.props.history.push("/profile");
+                }, 800)
             } else {
                 this.setState({
                     uploadResponse: res.data.message
@@ -88,13 +91,23 @@ class ModalExample extends React.Component {
         });
     }
 
+    redirect = () => {
+        alert('You have not logged in')
+    }
+
     render() {
+        const ID = JSON.parse(sessionStorage.getItem('user'));
         const { uploadProgress, uploadResponse, alert } = this.state;
         const { text } = this.props;
         if (text === 'Post') {
             return (
                 <div>
-                    <Button style={{ borderRadius: '100%', fontSize: '16px', fontWeight: '600', padding: '12px', boxShadow: '3px 7px 5px #9aa8b4' }} color="primary" onClick={this.toggle}>{text}</Button>
+                    {
+                        ID ?
+                        <Button style={{ borderRadius: '100%', fontSize: '16px', fontWeight: '600', padding: '12px', boxShadow: '3px 7px 5px #9aa8b4' }} color="primary" onClick={this.toggle}>{text}</Button>
+                        :
+                        <Button style={{ borderRadius: '100%', fontSize: '16px', fontWeight: '600', padding: '12px', boxShadow: '3px 7px 5px #9aa8b4' }} color="primary" onClick={this.redirect}>{text}</Button>
+                    }
                     <Modal style={{ marginTop: '120px' }} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     {
                         uploadProgress &&

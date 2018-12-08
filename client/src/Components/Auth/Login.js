@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
+import Navbar from '../Navbar';
 import { Url } from '../Factories';
 import { Alert } from 'reactstrap';
 import Loader from '../../Components/loader/Loader';
@@ -73,6 +74,7 @@ class Login extends React.Component {
                     loading &&
                     <Loader />
                 }
+                <Navbar />
                 <div className='auth_base'>
                     {
                         err &&
