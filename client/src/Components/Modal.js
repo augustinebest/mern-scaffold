@@ -55,7 +55,6 @@ class ModalExample extends React.Component {
     uploadlite = () => {
         const token = JSON.parse(sessionStorage.getItem('user'));
         const { postDesc, selectedFile } = this.state;
-        console.log(postDesc, selectedFile)
         const fd = new FormData();
         fd.append('postDesc', postDesc);
         fd.append('image', selectedFile);

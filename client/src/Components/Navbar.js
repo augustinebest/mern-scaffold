@@ -8,7 +8,6 @@ const Navbar = () => {
     }
     const ID = JSON.parse(sessionStorage.getItem('user'));
     if ((window.location.pathname === '/login' && ID) || (window.location.pathname === '/signup' && ID)) window.location.href = '/';
-    console.log(window.location.pathname)
     return (
         <header className="toolbar">
             <nav className="toolbar__navigation">
