@@ -74,7 +74,7 @@ class ModalExample extends React.Component {
                     alert: 'success'
                 })
                 setTimeout(() => {
-                    this.props.history.push("/profile");
+                    window.location.href = '/profile';
                 }, 800)
             } else {
                 this.setState({
