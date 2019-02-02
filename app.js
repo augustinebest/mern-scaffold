@@ -20,10 +20,10 @@ app.use((req, res, next) => {
 
 //connecting to mongoose
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost:27017/Sportzlite', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/Sportzlite', { useNewUrlParser: true })
 
 // Connection to mlab
-mongoose.connect('mongodb://sportzlite:sportzlite123@ds133814.mlab.com:33814/sportzlite', { useNewUrlParser: true })
+// mongoose.connect('mongodb://sportzlite:sportzlite123@ds133814.mlab.com:33814/sportzlite', { useNewUrlParser: true })
 
 //middleware
 app.use(bodyParser.json());

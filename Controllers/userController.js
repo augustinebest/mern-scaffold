@@ -104,12 +104,15 @@ exports.login = (req, res, next) => {
 exports.userProfil = (req, res, next) => {
     const userId = req.userData.id;
     try {
-        User.findOne({ _id: userId }, '-password').populate('post').exec((err, user) => {
+        User.findOne({ _id: userId }, '-password').populate({
+            path: 'post',
+            options: { sort: { dateCreated: -1 }}
+        }).exec((err, user) => {
             if (err) return res.json({ message: 'Error ocurred in finding this user', code: 11 });
             if (!user) {
                 return res.json({ message: 'This user does not exist' });
             }
-            res.json({ user: user });
+            res.json({ user: user, code: 200 });
         })
     } catch (error) {
         res.json({ error: error, message: 'error ocurred', code: 19 });
